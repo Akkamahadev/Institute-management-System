@@ -1,0 +1,29 @@
+{% extends 'adminnavbar.html' %}
+{% load static %}
+{% block content %}
+<h2 align="center" style="color:red">Course Details</h2>
+<body style="background-color:yellow">
+<table align="center" border="2" cellspacing="2">
+    <tr>
+        <th>CourseName</th>
+        <th>CourseDuration</th>
+        <th>CourseFees</th>
+        <th>UpdateCourse</th>
+        <th>DeleteCourse</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{ i.course_name }}</td>
+        <td>{{ i.course_duration }}</td>
+        <td>{{ i.course_fees }}</td>
+        <td><a href="{% url 'update_course' i.id %}">
+            <img src="{% static 'images/update.png' %}" align="center" width="50px" height="50px">
+        </a></td>
+        <td><a href="{% url 'delete_course' i.id %}">
+            <img src="{% static 'images/del.jpg' %}" align="center" width="50px" height="50px">
+        </a></td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+{% endblock %}

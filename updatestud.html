@@ -1,0 +1,64 @@
+{% extends 'adminnavbar.html' %}
+
+{% block content %}
+<h2 align="center" style="color:RED">Add Student</h2>
+<body style="background-color:yellow">
+<form method="post">
+  {% csrf_token %}
+  <table align="center">
+      <tr>
+          <td><b>StudentName:</b></td>
+          <td><input type="text" name="txtName" value="{{ student.stud_name }}"></td>
+
+      </tr>
+        <tr>
+          <td><b>StudentPhno:</b></td>
+          <td><input type="text" name="txtphno" value="{{ student.stud_phno }}"></td>
+      </tr>
+        <tr>
+          <td><b>StudentEmail:</b></td>
+          <td><input type="text" name="txtemail" value="{{ student.stud_email }}"></td>
+      </tr>
+      <tr>
+          <td><b>studentcity</b></td>
+          <td>
+              <select name="ddlcity">
+                  <option selected>{{ student.stud_city }}</option>
+              {% for i in CityData %}
+                  <option>{{ i.city_name }}</option>
+              {% endfor %}
+              </select>
+          </td>
+      </tr>
+      <tr>
+          <td><b>Course</b></td>
+          <td>
+              <select name="ddlcourse">
+                  <option selected>{{ student.stud_couese }}</option>
+              {% for i in CourseData %}
+                  <option>{{ i.course_name }}</option>
+              {% endfor %}
+              </select>
+          </td>
+      </tr>
+      <tr>
+          <td><b>Coursefee</b></td>
+          <td><input type="text" name="txtcoursefee" disabled></td>
+      </tr>
+      <tr>
+          <td><b>Paid Fees</b></td>
+          <td><input type="text" name="txtpaid" value="{{ student.paid_fees }}"></td>
+      </tr>
+      <tr>
+          <td>Pending Fees</td>
+          <td><input type="number" name="txtpaidfees" value="{{ student.pending_fees }}" disabled></td>
+      </tr>
+      <tr>
+          <td>
+              <input type="submit" name="btnadd" value="AddStudent">
+          </td>
+      </tr>
+</table>
+</form>
+</body>
+{% endblock %}

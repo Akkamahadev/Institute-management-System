@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+<!--    <script type="text/javascript">-->
+<!--	var activeNavItem = $('.nav-item');-->
+
+<!--	activeNavItem.click(function(){-->
+<!--	  activeNavItem.removeClass('active');-->
+<!--	  $(this).addClass('active');-->
+<!--	});-->
+<!--</script>-->
+<!--    <style>-->
+
+<!--/* Regular state */-->
+<!--.nav-item a {-->
+<!--    color: blue;-->
+<!--  }-->
+
+<!--/* Active state */-->
+<!--.nav-item.active a {-->
+<!--    color: red;-->
+<!--  }-->
+
+<!--</style>-->
+</head>
+<body>
+ <nav class="navbar navbar-inverse">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="">StudentManagement</a>
+    </div>
+
+        <ul class="nav navbar-nav">
+          <li class="nav-item"><a href="{% url 'home' %}">Home</a></li>
+            <li class="nav-item" ><a href="{% url 'addstudent' %}">AddStudent</a></li>
+            <li class="nav-item"><a href="{% url 'displaystudent' %}">DisplayStudent</a></li>
+            <li class="nav-item"><a href="{% url 'add_course' %}">AddCourse</a></li>
+            <li class="nav-item"><a href="{% url 'display_course' %}">DisplayCourse</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li class="nav-item">
+              <a href="{% url 'logout' %}">
+                  <span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        </ul>
+
+  </div>
+</nav>
+{% block content %}
+
+{% endblock %}
+</body>
+</html>

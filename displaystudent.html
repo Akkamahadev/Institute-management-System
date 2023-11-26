@@ -1,0 +1,34 @@
+{% extends 'adminnavbar.html' %}
+{% block content %}
+
+<h2 align="center" >Student Details</h2>
+<table align="center" class="table">
+    <tr>
+        <th>Name</th>
+        <th>PHNO</th>
+        <th>Email</th>
+        <th>city</th>
+        <th>Course</th>
+        <th>TotalFees</th>
+        <th>paidFees</th>
+        <th>PendingFees</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    {% for i in studentdata %}
+    <tr>
+        <td>{{ i.stud_name }}</td>
+        <td>{{ i.stud_phno }}</td>
+        <td>{{ i.stud_email }}</td>
+        <td>{{ i.stud_city }}</td>
+        <td>{{ i.stud_couese }}</td>
+        <td>{{i.stud_couese.course_fees }}</td>
+        <td>{{ i.paid_fees }}</td>
+        <td>{{ i.pending_fees }}</td>
+        <td><a href="{% url 'updatestud' i.id %}">Update</a> </td>
+        <td><a href="{% url 'deletestud' i.id %}">Delete</a> </td>
+
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
